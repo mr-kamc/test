@@ -5,135 +5,64 @@
     <title>Title</title>
 </head>
 <body>
-<h1>&&</h1>
+<h1>calculator</h1>
+<form action="index.php" method="get">
+    <input type="text" name="prim">
+    <select name="sign">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+    </select>
+    <input type="text" name="sec">
+    <input type="submit" value="=">
+</form>
 <?php
 
-$a = 0;
-$b = 1;
-
-?>
-
-<table border="1">
-    <caption>Таблица истинности - И</caption>
-    <tr>
-        <th><?php echo '&&' ?></th>
-        <th><?php echo $a ?></th>
-        <th><?php echo $b ?></th>
-    </tr>
-    <tr>
-        <th><?php echo $a ?></th>
-        <td><?php echo (int)($a & $a) ?></td>
-        <td><?php echo (int)($b & $a) ?></td>
-    </tr>
-    <tr>
-        <th><?php echo $b ?></th>
-        <td><?php echo (int)($a & $b) ?></td>
-        <td><?php echo (int)($b & $b) ?></td>
-    </tr>
-</table>
-</br>
-<table border="1">
-    <caption>Таблица истинности - ИЛИ</caption>
-    <tr>
-        <th><?php echo '||' ?></th>
-        <th><?php echo $a ?></th>
-        <th><?php echo $b ?></th>
-    </tr>
-    <tr>
-        <th><?php echo $a ?></th>
-        <td><?php echo (int)($a || $a) ?></td>
-        <td><?php echo (int)($b || $a) ?></td>
-    </tr>
-    <tr>
-        <th><?php echo $b ?></th>
-        <td><?php echo (int)($a || $b) ?></td>
-        <td><?php echo (int)($b || $b) ?></td>
-    </tr>
-</table>
-</br>
-<table border="1">
-    <caption>Таблица истинности - XOR</caption>
-    <tr>
-        <th><?php echo 'xor' ?></th>
-        <th><?php echo $a ?></th>
-        <th><?php echo $b ?></th>
-    </tr>
-    <tr>
-        <th><?php echo $a ?></th>
-        <td><?php echo (int)($a xor $a) ?></td>
-        <td><?php echo $b xor $a ?></td>
-    </tr>
-    <tr>
-        <th><?php echo $b ?></th>
-        <td><?php echo $a xor $b ?></td>
-        <td><?php echo (int)($b xor $b) ?></td>
-    </tr>
-</table>
-
-<?php
-
-$a = 1;
-$b = 4;
-$c = 2;
-
-
-function discr($a, $b, $c)
-{
-    $d = ($b*$b)-(4*($a*$c));
-
-    return $d;
+if(''==$_GET['prim']){
+    echo 'введите первое число </br>';
+}
+elseif (is_numeric($_GET['prim'])){
+    $prim = $_GET['prim'];
+} else {
+    echo 'первое значение не является числом </br>';
+}
+if(''==$_GET['sec']){
+    echo 'введите второе число </br>';
+}
+elseif (is_numeric($_GET['sec'])){
+    $sec = $_GET['sec'];
+} else {
+    echo 'второе значение не является числом </br>';
 }
 
-$v = discr($a,$b,$c);
-echo ($b*$b)-(4*($a*$c));
+$sign = $_GET['sign'];
 
-var_dump($v);
+//определяем знак в переменной $res
 
-assert(108 == discr(2,-18,27));
-assert(2500 == discr(1,-70,600));
-
-if (0>$v){
-    echo 'уравнение не имеет действительных корней';
+switch ($sign) {
+    case '+':
+        $res = $prim + $sec;
+        break;
+    case '-':
+        $res = $prim - $sec;
+        break;
+    case '/':
+        $res = $prim / $sec;
+        break;
+    case '*':
+        $res = $prim * $sec;
+        break;
+    default:
+        $res = 0;
+        break;
 }
-else{
-    $x1 = (-$b+sqrt($v))/(2*$a);
-    $x2 = (-$b-sqrt($v))/(2*$a);
-    echo 'x1 = ' . $x1 . '</br>';
-    echo 'x2 = ' . $x2 . '</br>';
-}
-
-?>
-
-<?php
-
-
-
-    function imagy($name)
-    {
-
-        $lastchar = substr($name,-2,2);
-
-        if($name==''){
-            return 'имя не может быть пустым';
-        }
-        elseif($lastchar=='а'||$lastchar=='я'){
-            return 'woman';
-        }
-        elseif ($lastchar=='й'||$lastchar=='в'||$lastchar=='р'||$lastchar=='м'){
-            return 'man';
-    }
-
-    }
-
-assert('man' == imagy('Василий'));
-
-
-
-
+echo $res . '</br>';
 
 
 ?>
 
+<a href="gallery.php">галлерея</a>
 
 
 </body>
