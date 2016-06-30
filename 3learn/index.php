@@ -27,7 +27,7 @@ $res = calculate($x, $y, $_POST['op']);
 </head>
 <body>
 <h1>calculator</h1>
-<form action="/index.php" method="post">
+<form action="/3learn/index.php" method="post">
     <input type="number" name="x" value="<?php echo $x; ?>">
     <select name="op">
         <option value="+" <?php if ('+' == $op) { ?> selected<?php } ?>>+</option>
