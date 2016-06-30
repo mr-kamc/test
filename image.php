@@ -8,14 +8,12 @@
 
 <?php
 
-$img = $_GET['id'];
-
-$images = [1=>'cat.jpg',2=>'dog.jpg',3=>'monkey.jpg'];
-
+$img = include __DIR__ . '/data.php';
+$num = $_GET['file'];
 
 ?>
 
-<img src="img/<?php echo $images[$img]; ?>">
+<img src="img/<?php echo $img[$num]; ?>">
 
 </body>
 </html>

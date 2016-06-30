@@ -1,3 +1,6 @@
+<?php
+$images = include __DIR__ . '/data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +8,10 @@
     <title>Title</title>
 </head>
 <body>
-<a href="image.php?id=1"><img src="/img/cat.jpg"></a></br>
-<a href="image.php?id=2"><img src="/img/dog.jpg"></a></br>
-<a href="image.php?id=3"><img src="/img/monkey.jpg"></a></br>
+<?php foreach($images as $num=>$img){ ?>
+    <a href="image.php?file=<?php echo $num; ?>"><img src="/img/<?php echo $img; ?>"></a></br>
+<?php } ?>
+
 
 </body>
 </html>
