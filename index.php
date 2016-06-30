@@ -2,10 +2,22 @@
 
 require __DIR__ . '/func.php';
 
-$x = (int)$_POST['x'];
-$y = (int)$_POST['y'];
+if(isset($_POST['x'])) {
+    $x = (int)$_POST['x'];
+} else {
+    $x = null;
+}
+if(isset($_POST['y'])){
+    $y = (int)$_POST['y'];
+} else {
+    $y = null;
+}
+if(isset($_POST['op'])){
+    $op = $_POST['op'];
+}
 
-$res = calculate($x,$y,$_POST['op']);
+    $res = calculate($x,$y,$_POST['op']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
