@@ -14,9 +14,11 @@ if (isset($_POST['y'])) {
 }
 if (isset($_POST['op'])) {
     $op = $_POST['op'];
+} else{
+    $op = null;
 }
 
-$res = calculate($x, $y, $_POST['op']);
+$res = calculate($x, $y, $op);
 
 ?>
 <!DOCTYPE html>
