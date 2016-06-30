@@ -1,3 +1,12 @@
+<?php
+
+require __DIR__ . '/func.php';
+
+$x = (int)$_POST['x'];
+$y = (int)$_POST['y'];
+
+$res = calculate($x,$y,$_POST['op']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,61 +15,20 @@
 </head>
 <body>
 <h1>calculator</h1>
-<form action="index.php" method="get">
-    <input type="text" name="prim">
-    <select name="sign">
+<form action="/index.php" method="post">
+    <input type="number" name="x">
+    <select name="op">
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="/">/</option>
         <option value="*">*</option>
     </select>
-    <input type="text" name="sec">
+    <input type="number" name="y">
     <input type="submit" value="=">
 </form>
-<?php
 
-if(''==$_GET['prim']){
-    echo 'введите первое число </br>';
-}
-elseif (is_numeric($_GET['prim'])){
-    $prim = $_GET['prim'];
-} else {
-    echo 'первое значение не является числом </br>';
-}
-if(''==$_GET['sec']){
-    echo 'введите второе число </br>';
-}
-elseif (is_numeric($_GET['sec'])){
-    $sec = $_GET['sec'];
-} else {
-    echo 'второе значение не является числом </br>';
-}
+<?php echo $res; ?>
 
-$sign = $_GET['sign'];
-
-//определяем знак в переменной $res
-
-switch ($sign) {
-    case '+':
-        $res = $prim + $sec;
-        break;
-    case '-':
-        $res = $prim - $sec;
-        break;
-    case '/':
-        $res = $prim / $sec;
-        break;
-    case '*':
-        $res = $prim * $sec;
-        break;
-    default:
-        $res = 0;
-        break;
-}
-echo $res . '</br>';
-
-
-?>
 
 <a href="gallery.php">галлерея</a>
 
