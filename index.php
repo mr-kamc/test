@@ -5,11 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<?php
-$cities = include __DIR__ . '/data.php';
-foreach ($cities as $city) {
-    echo $city . ', ';
-}
-?>
+<form action="city.php" method="post">
+    <label>
+        <h2>введи город!</h2>
+        <input type="text" name="city">
+    </label>
+    <input type="submit">
+</form>
 </body>
 </html>
