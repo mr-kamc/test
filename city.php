@@ -17,3 +17,13 @@ if($res){
 
 var_dump($res);
 var_dump($last);
+foreach($cities as $cit){
+    $fin = [];
+    $las = substr($cit,0,2);
+    if($las == 'А'){
+        $fin[] = $cit;
+        echo $cit;
+    }
+var_dump($fin);
+}
+
