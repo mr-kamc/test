@@ -6,7 +6,7 @@ $us = $_POST;
 
 $res = array_intersect($us,$cities);
 
-//определение последнего символа строки
+//определение последнего символа
 $last = substr($res['city'],-2);
 
 if($res){
