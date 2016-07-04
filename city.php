@@ -7,7 +7,8 @@ $us = $_POST;
 $res = array_intersect($us,$cities);
 
 //определение последнего символа
-$last = substr($res['city'],-2);
+$last =substr($res['city'],-2);
+$first = substr($res['city'],0,2);
 
 if($res){
     echo 'есть город';
@@ -16,14 +17,23 @@ if($res){
 }
 
 var_dump($res);
-var_dump($last);
-foreach($cities as $cit){
-    $fin = [];
-    $las = substr($cit,0,2);
-    if($las == 'А'){
-        $fin[] = $cit;
+var_dump($first);
+
+$fin = [];
+foreach($cities as $key=>$cit){
+    $result = [];
+
+    $citLow = mb_strtolower(substr($cit,0,2));//города в нижнем регистре
+
+    if($last==$citLow){
         echo $cit;
+        break;
     }
-var_dump($fin);
+
 }
+
+
+
+
+
 
