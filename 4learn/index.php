@@ -14,7 +14,7 @@ $path = __DIR__ . '/db.txt';
 $text = reedBook($path);
 $i = 1;
 ?>
-<form action="/gen.php" method="post">
+<form action="/4learn/gen.php" method="post">
     <input type="text" name="text">
     <input type="submit" value="send">
 </form>
@@ -26,6 +26,11 @@ $i = 1;
         <p><?php echo $art;?></p>
     <?php endforeach; ?>
 <?php endif; ?>
+<hr>
+<form enctype="multipart/form-data" action="genFile.php" method="post">
+    <input name = "userfile" type="file">
+    <input type="submit" value="Send file">
+</form>
 
 </body>
 </html>
