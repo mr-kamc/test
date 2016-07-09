@@ -17,7 +17,7 @@ $book = new \App\GuestBook($path);
 </head>
 <body>
 <?php ob_start() ?>
-<form action="/gen.php" method="post" enctype="multipart/form-data">
+<form action="/5learn/gen.php" method="post" enctype="multipart/form-data">
     <input type="file" name="myFile">
     <input type="submit" value="send">
 </form>
