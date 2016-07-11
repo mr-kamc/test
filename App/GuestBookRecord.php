@@ -13,7 +13,8 @@ class GuestBookRecord
 
     public function getMessage()
     {
-        return $this->message;
+        //return $this->message;
+        echo $this->message;
     }
 
 }

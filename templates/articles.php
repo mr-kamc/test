@@ -12,8 +12,9 @@
     </style>
 </head>
 <body>
+
 <?php
-foreach($data as $line) {?>
+foreach($data['art'] as $line) {?>
     <article><?php echo $line->getMessage(); ?></article>
 <?php } ?>
 
