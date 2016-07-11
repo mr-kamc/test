@@ -2,41 +2,24 @@
 
 namespace App;
 
+require __DIR__ . '/GuestBookRecord.php';
 
 class GuestBook
 {
-    protected $lines;
-
-    public function __construct($path)
+    protected $file;
+    public function __construct($file)
     {
-        $this->lines = file($path);
+        $this->file = $file;
     }
 
-    //получает данные из файла
-    public function getData()
+    public function getAll()
     {
-        return $this->lines;
-    }
-
-    //добавляет массив в файл
-    public function append($text, $path)
-    {
-        $textOld = $this->lines;
-        if (isset($text) && ('' !== $text)) {
-            $textOld[] = $text;
-
-            $strText = implode("\n", $textOld);
-
-            file_put_contents($path, $strText);
+        $data = file($this->file);
+        $ret = [];
+        foreach ($data as $line){
+            $ret[] = new GuestBookRecord($line);
         }
-    }
-
-    //сохраняет массив в файл
-    public function save($file)
-    {
-        $str = $this->getData();
-        $res = implode("\n", $str);
-        file_put_contents($file, $res);
+        return $ret;
     }
 
 }

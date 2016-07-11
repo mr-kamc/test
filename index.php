@@ -1,26 +1,8 @@
 <?php
 
-include __DIR__ . '/App/GuestBook.php';
-include __DIR__ . '/App/Uploader.php';
+require __DIR__ . '/App/GuestBook.php';
 
-$path = __DIR__ . '/App/db.txt';
-$test = __DIR__ . '/test.txt';
-$book = new \App\GuestBook($path);
+$gb = new \App\GuestBook(__DIR__ . '/db.txt');
+$data = $gb->getAll();
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<?php ob_start() ?>
-<form action="/gen.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="myFile">
-    <input type="submit" value="send">
-</form>
-<?php ob_end_clean() ?>
-</body>
-</html>
+include __DIR__ . '/templates/articles.php';
