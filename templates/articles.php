@@ -37,7 +37,13 @@
 
 <div class="art">
     <article>
-        <?php echo $data['news']; ?>
+        <?php foreach($data['news'] as $value){ ?>
+                <h2><?php echo $value['title']; ?></h2>
+                <?php echo $value['text']; ?>
+                </br>
+                <p>Автор:<?php echo $value['author'] ?></p>
+                <a href="/">home</a>
+        <?php }?>
     </article>
 </div>
 </body>

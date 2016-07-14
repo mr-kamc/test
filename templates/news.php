@@ -36,22 +36,17 @@
 <h1>News. The Lorem Ipsum</h1>
 
 <div class="art">
-    <?php foreach ($data['news'] as $prop=>$article) { ?>
+
+
+    <?php foreach ($data['news'] as $value) { ?>
         <article>
-            <?php echo $article->getNews() ?>
+            <h2><?php echo $value['title']; ?></h2>
+            <?php echo $value['text']; ?>
             </br>
-            <a href="/6learn/index.phpdex.php?id=<?php echo $prop; ?>">open article</a>
+            <p>Автор:<?php echo $value['author'] ?></p>
+            <a href="/index.php?id=<?php echo $value['id'];?>">open article</a>
         </article>
     <?php } ?>
-    <article>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.
-    </article>
 </div>
 </body>
 </html>
