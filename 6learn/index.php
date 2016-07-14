@@ -19,7 +19,7 @@ echo $books->render(__DIR__ . '/templates/articles.php');
 */
 
 require __DIR__ . '/App/News.php';
-require  __DIR__ . '/App/View.php';
+require __DIR__ . '/App/View.php';
 
 $news = new \App\News(__DIR__ . '/db.txt');
 

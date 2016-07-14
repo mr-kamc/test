@@ -40,7 +40,7 @@
         <article>
             <?php echo $article->getNews() ?>
             </br>
-            <a href="/index.php?id=<?php echo $prop; ?>">open article</a>
+            <a href="/6learn/index.phpdex.php?id=<?php echo $prop; ?>">open article</a>
         </article>
     <?php } ?>
     <article>
