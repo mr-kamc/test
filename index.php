@@ -1,9 +1,6 @@
 <?php
 
-require __DIR__ . '/App/Db.php';
-require __DIR__ . '/App/News.php';
-require __DIR__ . '/App/View.php';
-
+require __DIR__ . '/autoload.php';
 include __DIR__ . '/config.php';
 
 $news = new \App\News();
