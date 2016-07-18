@@ -36,9 +36,7 @@
 <h1>News. The Lorem Ipsum</h1>
 
 <div class="art">
-
-
-    <?php foreach ($data['news'] as $value) { ?>
+    <?php foreach ($news as $value) { ?>
         <article>
             <h2><?php echo $value['title']; ?></h2>
             <?php echo $value['text']; ?>
